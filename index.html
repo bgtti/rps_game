@@ -1,14 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Coda&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissors</title>
 </head>
+
 <body>
-    <h1>Rock Paper Scissors</h1>
-     
+    <h1 class="title-h1">Rock Paper Scissors</h1>
+    <h2 class="title-h2">Player vs Computer: can you win this challenge?</h2>
+    <h3 class="title-h3">Round <span id="rounds">1</span> of 5</h3>
+    <div class="container-pvsc">
+        <div class="pvsc">
+            <h2 class="pc">Player</h2>
+            <div class="pvsc-sub">
+                <div class="score-container">
+                    <img src="icons/user-regular.svg" alt="Player icon" class="main-icon">
+                    <div>
+                        <h3 class="score-title">Score: </h3>
+                        <h3 id="scoreP">0</h3>
+                    </div>
+                </div>
+                <div class="rps-btns">
+                    <div class="btn-containers hover-btn" id="pRock">
+                        <img src="icons/hand-rock-regular.svg" alt="Rock" class="icon ">
+                        <h4>Rock</h4>
+                    </div>
+                    <div class="btn-containers hover-btn" id="pPaper">
+                        <img src="icons/hand-paper-regular.svg" alt="Paper" class="icon ">
+                        <h4>Paper</h4>
+                    </div>
+                    <div class="btn-containers hover-btn" id="pScissors">
+                        <img src="icons/hand-scissors-regular.svg" alt="Scissors" class="icon ">
+                        <h4>Scissors</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pvsc">
+            <h2 class="pc">Computer</h2>
+            <div class="pvsc-sub">
+                <div class="score-container">
+                    <img src="icons/desktop-solid.svg" alt="Computer icon" class="main-icon">
+                    <div>
+                        <h3 class="score-title">Score: </h3>
+                        <h3 id="scoreC">0</h3>
+                    </div>
+                </div>
+                <div class="rps-btns">
+                    <div class="btn-containers" id="cRock">
+                        <img src="icons/hand-rock-regular.svg" alt="Rock" class="icon">
+                        <h4>Rock</h4>
+                    </div>
+                    <div class="btn-containers" id="cPaper">
+                        <img src="icons/hand-paper-regular.svg" alt="Paper" class="icon">
+                        <h4>Paper</h4>
+                    </div>
+                    <div class="btn-containers" id="cScissors">
+                        <img src="icons/hand-scissors-regular.svg" alt="Scissors" class="icon">
+                        <h4>Scissors</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <h4 id="winner"></h4>
+    <div class="separator-1"></div>
+    <div class="separator-2"></div>
+    <div class="separator-3"></div>
+    <div class="separator-4"></div>
+    <div class="how-to-play">
+        <img src="icons/arrow.svg" alt="Diagram Arrow Icon" id="arrow-1" class="arrows">
+        <img src="icons/arrow.svg" alt="Diagram Arrow Icon" id="arrow-2" class="arrows">
+        <img src="icons/arrow.svg" alt="Diagram Arrow Icon" id="arrow-3" class="arrows">
+
+        <div class="icon-containers" id="exp-R">
+            <img src="icons/hand-rock-regular.svg" alt="Rock" class="icon-exp">
+            <h4 class="exp">Rock</h4>
+        </div>
+        <div class="icon-containers" id="exp-P">
+            <img src="icons/hand-paper-regular.svg" alt="Paper" class="icon-exp">
+            <h4 class="exp">Paper</h4>
+        </div>
+        <div class="icon-containers" id="exp-S">
+            <img src="icons/hand-scissors-regular.svg" alt="Scissors" class="icon-exp">
+            <h4 class="exp">Scissors</h4>
+        </div>
+        <h5 id="beats-1">beats</h5>
+        <h5 id="beats-2">beats</h5>
+        <h5 id="beats-3">beats</h5>
+    </div>
+
+
     <script src="./index.js"></script>
 </body>
+
 </html>
