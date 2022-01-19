@@ -1,20 +1,34 @@
+'use strict'
 //Player buttons
-const pRock = document.querySelector('#pRock') 
-const pPaper = document.querySelector('#pPaper') 
-const pScissors = document.querySelector('#pScissors') 
+const pRock = document.querySelector('#pRock'); 
+const pPaper = document.querySelector('#pPaper'); 
+const pScissors = document.querySelector('#pScissors'); 
+
+const allPBtns = [pRock, pPaper, pScissors]
 
 //Computer buttons
-const cRock = document.querySelector('#cRock') 
-const cPaper = document.querySelector('#cPaper') 
-const cScissors = document.querySelector('#cScissors') 
+const cRock = document.querySelector('#cRock'); 
+const cPaper = document.querySelector('#cPaper'); 
+const cScissors = document.querySelector('#cScissors'); 
+
+const allCBtns = [cRock, cPaper, cScissors]
 
 //Round winner and score display
-const roundWinnerDisplay = document.querySelector('#winner') 
-const scoreDiplayP = document.querySelector('#scoreP') 
-const scoreDiplayC = document.querySelector('#scoreC')
+const roundWinnerDisplay = document.querySelector('#winner'); 
+const scoreDiplayP = document.querySelector('#scoreP'); 
+const scoreDiplayC = document.querySelector('#scoreC');
 
 // Modal
-const gameOverMessage = document.querySelector('#gameOverMessage')
+const modal = document.querySelector('#modalContainer');
+const gameOverMessage = document.querySelector('#gameOverMessage') 
+const playBtn = document.querySelector('.play-btn');
+
+// Information Modal
+const infoModal = document.querySelector('#info-modal');
+
+//Where information modal adisplays
+const infoModalD1 = document.querySelector('#subH');
+const infoModalD2 = document.querySelector('#how-to-play');
 
 //Answer array
 
@@ -35,38 +49,44 @@ let scoreC = 0;
 // Round results
 
 function playRound(btnPressed){
+    let whoWins = "";
+    let msg = "";
     const playerSelection = btnPressed.currentTarget.myParam;
     const computerSelection = computerPlay();
+
+    const indexCSelection = rps.indexOf(computerSelection); //index of computer button
+    clickedBtn(allCBtns[indexCSelection]); //styles clicked computer button
+
     if (computerSelection === playerSelection){
         whoWins = "draw";
-        msg = "Draw.";
+        msg = "Draw: no points awarded.";
     } else if (computerSelection === rps[0] && playerSelection === rps[2]){
         whoWins = "computer";
-        msg = "You lose, Rock beats Scissors.";
+        msg = "You lose: rock beats scissors.";
         
     } else if (computerSelection === rps[0] && playerSelection === rps[1]){
         whoWins = "player";
-        msg = "You win, Paper beats Rock.";
+        msg = "You win: paper beats rock.";
         
     } else if (computerSelection === rps[2] && playerSelection === rps[1]){
         whoWins = "computer";
-        msg = "You lose, Scissors beats Paper.";
+        msg = "You lose: scissors beats paper.";
         
     } else if (computerSelection === rps[2] && playerSelection === rps[0]){
         whoWins = "player";
-        msg = "You win, Rock beats Scissors.";
+        msg = "You win: rock beats scissors.";
         
     } else if (computerSelection === rps[1] && playerSelection === rps[0]){
         whoWins = "computer";
-        msg = "You lose, Paper beats Rock.";
+        msg = "You lose: paper beats rock.";
         
     } else if (computerSelection === rps[1] && playerSelection === rps[2]){
         whoWins = "player";
-        msg = "You win, Scissors beats Paper.";
+        msg = "You win: scissors beats paper.";
         
     } else {
         whoWins = "invalid";
-        msg = "Invalid: you may only input 'Rock', 'Paper', or 'Scissors'.";
+        msg = "Invalid: behaviour not accepted.";
     }
     roundWinnerDisplay.textContent = msg;
     let roundWinner = [whoWins, msg];
@@ -95,23 +115,67 @@ async function checkIfGameOver(){
 
 
 function gameEnd(){
-    gameWinner = "Contratulations, you won!";
-    gameLoser = "You lost!"
+    let gameWinner = "Contratulations, you won!";
+    let gameLoser = "You lost!"
+    let displayMsg ="";
     if(scoreP === 5 ){
         displayMsg = gameWinner;
     } else {
         displayMsg = gameLoser;
     }
-    gameResult(displayMsg)
-}
-let gameResult = function(msg){
-    alert(msg)
+    
+    gameOverMessage.textContent = displayMsg;
+    modal.classList.toggle("modalDisplayNone");
+    
 }
 
-//Event Listeners
+
+
+// Reset game and play again
+
+function resetGame(){
+    scoreP = 0;
+    scoreC = 0;
+    scoreDiplayP.textContent = scoreP;
+    scoreDiplayC.textContent = scoreC;
+    roundWinnerDisplay.textContent = "";
+    modal.classList.toggle("modalDisplayNone");
+}
+
+
+//Event listeners that listen to btn pressed
 pRock.addEventListener('click', playRound, false);
 pRock.myParam = rps[0];
 pPaper.addEventListener('click', playRound, false);
 pPaper.myParam = rps[1];
 pScissors.addEventListener('click', playRound, false);
 pScissors.myParam = rps[2];
+
+playBtn.addEventListener('click', resetGame, false);
+
+//Styling clicked button
+for (let i = 0; i < allPBtns.length; i++){
+    allPBtns[i].addEventListener('click', function(){
+        clickedBtn(allPBtns[i]);
+    })
+}
+
+function clickedBtn (btn){
+    btn.classList.toggle('click-btn');
+    btn.classList.toggle('hover-btn');
+    setTimeout(function(){btn.classList.toggle('click-btn');}, 200);
+    setTimeout(function(){btn.classList.toggle('hover-btn');}, 200);
+
+}
+
+//Information modal appearing
+infoModalD1.addEventListener('mouseover', infoModalDisplay, false);
+infoModalD2.addEventListener('mouseover', infoModalDisplay, false);
+infoModalD1.addEventListener('mouseout', infoModalDisplay, false);
+infoModalD2.addEventListener('mouseout', infoModalDisplay, false);
+infoModalD1.addEventListener('click', infoModalDisplay, false);
+infoModalD2.addEventListener('click', infoModalDisplay, false);
+
+function infoModalDisplay(){
+    infoModal.classList.toggle('modalDisplayNone');
+}
