@@ -1,4 +1,26 @@
+//Player buttons
+const pRock = document.querySelector('#pRock') 
+const pPaper = document.querySelector('#pPaper') 
+const pScissors = document.querySelector('#pScissors') 
+
+//Computer buttons
+const cRock = document.querySelector('#cRock') 
+const cPaper = document.querySelector('#cPaper') 
+const cScissors = document.querySelector('#cScissors') 
+
+//Round winner and score display
+const roundWinnerDisplay = document.querySelector('#winner') 
+const scoreDiplayP = document.querySelector('#scoreP') 
+const scoreDiplayC = document.querySelector('#scoreC')
+
+// Modal
+const gameOverMessage = document.querySelector('#gameOverMessage')
+
+//Answer array
+
 let rps = ["rock", "paper", "scissors"];
+
+//Computer play
 
 function computerPlay(){
     let playNr = Math.floor(Math.random()*rps.length);
@@ -6,7 +28,15 @@ function computerPlay(){
     return playE
     }
 
-function playRound(playerSelection, computerSelection){
+//Game Score
+let scoreP = 0;
+let scoreC = 0;
+
+// Round results
+
+function playRound(btnPressed){
+    const playerSelection = btnPressed.currentTarget.myParam;
+    const computerSelection = computerPlay();
     if (computerSelection === playerSelection){
         whoWins = "draw";
         msg = "Draw.";
@@ -38,27 +68,50 @@ function playRound(playerSelection, computerSelection){
         whoWins = "invalid";
         msg = "Invalid: you may only input 'Rock', 'Paper', or 'Scissors'.";
     }
+    roundWinnerDisplay.textContent = msg;
     let roundWinner = [whoWins, msg];
-    return roundWinner
-    
+
+    console.log(roundWinner)
+    if(roundWinner[0]==="computer"){
+        scoreC++;
+    } else if (roundWinner[0]==="player"){
+        scoreP++;
+    }
+    scoreDiplayP.textContent = scoreP;
+    scoreDiplayC.textContent = scoreC;
+
+    setTimeout(function(){checkIfGameOver();}, 0);   
 }
 
-function game(){
-    let rounds = 0;
-    let scoreP = 0;
-    let scoreC = 0; 
-    for (let i = rounds; i < 5; i++){
-        const userInput = prompt("Select: Rock, Paper, or Scissors?");
-        const playerSelection = userInput.toLowerCase();
-        const computerSelection = computerPlay();
-        let winner = playRound(playerSelection, computerSelection);
-        rounds ++;
-        if(winner[0]==="computer"){
-            scoreC ++;
-        } else if (winner[0]==="player"){
-            scoreP++;
-        }
-        console.log(`${winner[1]} C: ${scoreC}, P: ${scoreP}`); 
-    }
+//Check if game is over
+
+async function checkIfGameOver(){
+    if (scoreP === 5 || scoreC === 5){
+        setTimeout(function(){gameEnd();}, 100); 
+    } 
 }
-game();
+
+//Announce Winner
+
+
+function gameEnd(){
+    gameWinner = "Contratulations, you won!";
+    gameLoser = "You lost!"
+    if(scoreP === 5 ){
+        displayMsg = gameWinner;
+    } else {
+        displayMsg = gameLoser;
+    }
+    gameResult(displayMsg)
+}
+let gameResult = function(msg){
+    alert(msg)
+}
+
+//Event Listeners
+pRock.addEventListener('click', playRound, false);
+pRock.myParam = rps[0];
+pPaper.addEventListener('click', playRound, false);
+pPaper.myParam = rps[1];
+pScissors.addEventListener('click', playRound, false);
+pScissors.myParam = rps[2];
