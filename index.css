@@ -113,7 +113,6 @@ body {
 }
 /* hover style */
 .hover-btn:hover {
-	background-color: #1f1e1e8e;
 	background-color: #e0b907;
 	cursor: pointer;
 }
