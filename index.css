@@ -1,0 +1,399 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+h1 {
+	font-family: 'Audiowide', cursive;
+	font-size: 4em;
+	margin-top: 20px;
+	color: #a50707;
+}
+
+h2,
+h3,
+h4,
+h5,
+p {
+	font-family: 'Coda', cursive;
+}
+h6 {
+	font-family: 'Audiowide', cursive;
+}
+
+.title-h1,
+.title-h2,
+.title-h3 {
+	text-align: center;
+}
+.title-h2,
+.title-h3 {
+	margin: 5px;
+}
+.title-h2 {
+	color: #1f1e1e;
+}
+.title-h3 {
+	color: rgb(128, 128, 128);
+}
+
+/* Background image - original from: WallpaperAccess © 2022 at https://wallpaperaccess.com/digital-computer#google_vignette*/
+body {
+	background-image: url(./images/background_image.jpg);
+}
+
+/* Game area */
+
+.container-pvsc {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+.pvsc {
+	text-align: center;
+	margin: 10px;
+}
+
+.pvsc-sub {
+	border: solid 5px black;
+	border-radius: 5%;
+	padding: 10px;
+	background-color: #808080;
+}
+.pc {
+	margin-bottom: 5px;
+}
+.score-container {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 5px;
+}
+
+.rps-btns {
+	display: flex;
+}
+
+.btn-containers {
+	border: solid 3px #000000;
+	border-radius: 5%;
+	margin: 5px;
+	padding: 5px;
+	width: 90px;
+}
+
+/* convert hex to CSS filter:  https://codepen.io/sosuke/pen/Pjoqqp*/
+.main-icon {
+	height: 50px;
+	filter: invert(9%) sepia(2%) saturate(0%) hue-rotate(339deg) brightness(100%)
+		contrast(94%);
+}
+.score-title {
+	color: #1f1e1e;
+}
+
+.icon {
+	height: 70px;
+	filter: invert(9%) sepia(2%) saturate(0%) hue-rotate(339deg) brightness(100%)
+		contrast(94%);
+}
+
+#scoreP,
+#scoreC {
+	font-size: 1.3rem;
+	color: #e0b907;
+}
+/* hover style */
+.hover-btn:hover {
+	background-color: #e4e4e4;
+	cursor: pointer;
+}
+
+/* click style */
+.click-btn {
+	background-color: #1f1e1e;
+}
+.click-btn img {
+	filter: invert(60%) sepia(93%) saturate(1800%) hue-rotate(16deg)
+		brightness(112%) contrast(94%);
+}
+.click-btn h4 {
+	color: #e0b907;
+}
+
+/* winner/loser announcement */
+#winner {
+	color: #e0b907;
+	width: fit-content;
+	margin: 10px auto;
+	color: #a50707;
+}
+
+/* BELLOW GAME AREA */
+
+.bellow-game-area-container {
+	/* position: absolute;
+	bottom: 0;
+	left: 0; */
+	width: 100%;
+	min-height: fit-content;
+}
+.rules-of-game {
+	padding-top: 5px;
+	border-top: solid 2px #808080;
+	min-height: fit-content;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+/* Separators */
+.seps {
+	background-color: #808080;
+}
+.seps:hover {
+	background-color: #e4e4e4;
+}
+.separator-1 {
+	height: 2px;
+	width: 300px;
+	margin: 15px auto;
+	text-align: center;
+}
+.separator-2 {
+	height: 2px;
+	width: 200px;
+	margin: 15px auto;
+	text-align: center;
+}
+.separator-3 {
+	height: 2px;
+	width: 100px;
+	margin: 15px auto;
+	text-align: center;
+}
+.separator-4 {
+	height: 2px;
+	width: 30px;
+	margin: 15px auto;
+	text-align: center;
+}
+/* subtitle */
+.subH {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+.subT-rules {
+	font-size: 1.5em;
+	text-align: center;
+	margin-bottom: 15px;
+	margin-right: 5px;
+	color: #808080;
+}
+.info-icon {
+	width: 15px;
+	background-color: #808080;
+	border-radius: 50%;
+	border: solid 2px #808080;
+	filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(201deg)
+		brightness(106%) contrast(106%);
+}
+
+/* How to play diagram */
+.icon-containers {
+	border: solid 2px #e0b907;
+	border-radius: 50%;
+	width: 75px;
+	height: 75px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.icon-containers img {
+	filter: invert(51%) sepia(0%) saturate(0%) hue-rotate(107deg) brightness(98%)
+		contrast(91%);
+}
+.icon-containers h4 {
+	color: rgb(128, 128, 128);
+}
+.arrows {
+	width: 50px;
+
+	filter: invert(51%) sepia(0%) saturate(0%) hue-rotate(107deg) brightness(98%)
+		contrast(91%);
+}
+.icon-exp {
+	width: 30px;
+}
+.exp {
+	font-size: 0.8em;
+}
+
+/* Positioning diagram*/
+.how-to-play {
+	height: 200px;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+#exp-R {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+#exp-P {
+	position: absolute;
+	left: 0;
+	top: 80px;
+}
+#exp-S {
+	position: absolute;
+	right: 0px;
+	top: 80px;
+}
+
+#arrow-1 {
+	position: absolute;
+	transform: rotate(90deg);
+	right: 0;
+	top: 25px;
+}
+#arrow-2 {
+	position: absolute;
+	transform: rotate(215deg);
+	bottom: 15px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+#arrow-3 {
+	position: absolute;
+	transform: rotate(340deg);
+	left: 0;
+	top: 25px;
+}
+
+h5 {
+	font-size: 0.6em;
+	color: #1f1e1e;
+}
+#beats-1 {
+	position: absolute;
+	transform: rotate(90deg);
+	right: 7.5px;
+	top: 45px;
+}
+
+#beats-2 {
+	position: absolute;
+	transform: rotate(25deg);
+	bottom: 28px;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+#beats-3 {
+	position: absolute;
+	transform: rotate(-33deg);
+	top: 40px;
+	left: 7.5px;
+}
+/* Information modal */
+.info-modal {
+	background-color: #e4e4e4e7;
+	border: solid 3px #1f1e1eef;
+	border-radius: 5%;
+	padding: 5px;
+	width: fit-content;
+	position: absolute;
+	z-index: 1;
+	top: -5%;
+	left: 60%;
+}
+.info-modal p {
+	color: #1f1e1e;
+	font-size: 0.8em;
+	text-align: justify;
+}
+.info-modal h6 {
+	color: #a50707;
+	font-size: 1em;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+/* Modal */
+.modalContainer {
+	background-color: rgba(0, 0, 0, 0.808);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+}
+.modal {
+	background-color: #e4e4e4;
+	height: 150px;
+	width: 300px;
+	border: solid 5px black;
+	border-radius: 5%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+.play-btn {
+	background-color: #e0b907;
+	padding: 5px 10px;
+	border: solid 3px black;
+	border-radius: 5%;
+	width: fit-content;
+}
+
+.play-btn:hover {
+	background-color: #1f1e1e;
+	color: #e0b907;
+	cursor: pointer;
+}
+.modalDisplayNone {
+	display: none;
+}
+
+/* Footer */
+footer {
+	/* background-color: #808080; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0 0 0;
+	min-height: 50px;
+}
+footer p {
+	margin-right: 7px;
+	color: #808080;
+}
+footer img {
+	width: 20px;
+	padding-left: 5px;
+	filter: invert(53%) sepia(10%) saturate(9%) hue-rotate(31deg) brightness(93%)
+		contrast(88%);
+}
+footer img:hover {
+	transform: scale(2) rotateZ(360deg);
+}
