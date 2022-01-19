@@ -67,7 +67,7 @@ body {
 	border: solid 5px black;
 	border-radius: 5%;
 	padding: 10px;
-	background-color: #808080;
+	background-color: #e0e0e056;
 }
 .pc {
 	margin-bottom: 5px;
@@ -109,11 +109,12 @@ body {
 #scoreP,
 #scoreC {
 	font-size: 1.3rem;
-	color: #e0b907;
+	color: #a50707;
 }
 /* hover style */
 .hover-btn:hover {
-	background-color: #e4e4e4;
+	background-color: #1f1e1e8e;
+	background-color: #e0b907;
 	cursor: pointer;
 }
 
