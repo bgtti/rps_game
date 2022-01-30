@@ -9,5 +9,6 @@ A short explanation of the game rules are at the bottom of the page.
 ![RPSexample](/images/rpsPreview.png)
 
 This project was built using HTML, CSS and vanilla JS.
+
 Link to the Odin Project guidelines: https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/revisiting-rock-paper-scissors
 
