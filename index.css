@@ -112,9 +112,11 @@ body {
 	color: #a50707;
 }
 /* hover style */
-.hover-btn:hover {
+@media (hover: hover) {
+    .hover-btn:hover {
 	background-color: #e0b907;
 	cursor: pointer;
+     }
 }
 
 /* click style */
@@ -367,11 +369,12 @@ h5 {
 	border-radius: 5%;
 	width: fit-content;
 }
-
-.play-btn:hover {
+@media (hover: hover) {
+    .play-btn:hover {
 	background-color: #1f1e1e;
 	color: #e0b907;
 	cursor: pointer;
+     }
 }
 .modalDisplayNone {
 	display: none;
